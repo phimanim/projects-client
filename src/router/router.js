@@ -1,8 +1,12 @@
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { AppRoute, GuestRoute } from ".";
 import { Auth } from "../pages/Auth";
 import { Main } from "../pages/Main";
+import { Projects } from "../pages/Projects";
+import { Project } from "../pages/Project";
+import { NewProject } from "../pages/NewProject";
+import { ROUTES } from ".";
 
 function AppRouter() {
   return (
@@ -13,17 +17,38 @@ function AppRouter() {
       <GuestRoute path="/signup" exact>
         <Auth />
       </GuestRoute>
-      <AppRoute exact path="/private">
+      {/* <AppRoute exact path="/private">
         <div>
-          <h2>Private</h2>
-          <p>Should only render if user is logged in</p>
+          
         </div>
-      </AppRoute>
+      </AppRoute> */}
       <AppRoute exact path="/">
         <Main />
       </AppRoute>
+
+      <Route exact path="/projects" element={<Projects />} />
+
+         
+          {/* <Route path={ROUTES.root}>
+            <Projects />
+          </Route>
+          <Route path={ROUTES.project}>
+            <Project />
+          </Route>
+
+          <Route path={ROUTES.newProject}>
+            <NewProject />
+          </Route> */}
     </Switch>
-  );
+
+/* <Routes>
+<Route exact path=“/” element={<Home />} />
+<Route exact path=“/beers” element={<Beers />} />
+<Route path=“/random-beers” element={<RandomBeer />} />
+<Route path=“/new-beer” element={<NewBeer />} />
+<Route path=“/beers/:id” element={<DetailedBeer />} />
+</Routes> */
+  )
 }
 
 export default AppRouter;

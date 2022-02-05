@@ -20,3 +20,15 @@ export function logout() {
 export function isLoggedIn() {
   return api.get("/login");
 }
+
+export function getProjects() {
+  return api.get("/projects");
+}
+
+export function getProjectById(projectId) {
+  return api.get(`/projects/${projectId}`);
+}
+
+export function createProject(project) {
+  return api.post("/new", project);
+}

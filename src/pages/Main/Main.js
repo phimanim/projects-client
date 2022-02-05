@@ -7,7 +7,9 @@ function Main() {
     <div>
       <h2>Welcome</h2>
       <p>{user?.email}</p>
+      
     </div>
+
   );
 }
 
