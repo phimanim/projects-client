@@ -12,7 +12,7 @@ function AuthForm({ onSubmit, submitMessage }) {
     onSubmit(state);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="Form"onSubmit={handleSubmit}>
       <label htmlFor="email">Email</label>
       <input
         required

@@ -1,0 +1,26 @@
+.Navbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 30%;
+  
+}
+
+.NavbarLink {
+  color: black;
+  text-decoration: none;
+}
+
+.NavbarLink:hover {
+  color: blueviolet;
+}
+
+.NavbarButton {
+    border: none;
+    background: none;
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .NavbarButton:hover {
+    color: grey;
+  }
