@@ -9,8 +9,11 @@ function Navbar() {
     return (
       <div>
         <Link to="/">Home</Link>
-        <Link style={{ margin: "0 15px" }} to="/private">
-          Private
+        <Link style={{ margin: "0 15px" }} to="/projects">
+          Projects
+        </Link>
+        <Link style={{ margin: "0 15px" }} to="/new-project">
+          Create a project
         </Link>
         <button onClick={handleLogout}>logout</button>
       </div>

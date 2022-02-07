@@ -13,10 +13,10 @@ function Project() {
 
   return (
     <div>
-      <Suspense noData={!data && !loading} error={error} loading={loading}>
-        <h2>Project</h2>
-        <p>{data?.name}</p>
-        <p>{data?.description}</p>
+      <Suspense error={error} loading={loading} noData={!data && !loading}>
+        <h2>Project {data?.title}</h2>
+        <p>{data?.title}</p>
+        <p>Description : {data?.description}</p>
         <p>{data?.task}</p>
       </Suspense>
     </div>

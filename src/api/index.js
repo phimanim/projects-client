@@ -30,5 +30,9 @@ export function getProjectById(projectId) {
 }
 
 export function createProject(project) {
-  return api.post("/new", project);
+  return api.post("/projects", project);
 }
+
+// export function updateProject(projectId, project) {
+//   return api.put(`/projects/${projectId}`, project);
+// }

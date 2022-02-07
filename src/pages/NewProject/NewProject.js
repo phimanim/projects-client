@@ -1,45 +1,38 @@
 import React from "react";
 import { createProject } from "../../api";
 import { useHistory } from "react-router-dom";
-import { ROUTES } from "../../router";
 
 function NewProject() {
-  const initialState = {
-    name: "",
-    description: "",
-    task: "",
-  };
-
-  const [state, setState] = React.useState(initialState);
+  const [state, setState] = React.useState({ title: "", description: ""});
   const history = useHistory();
-  const handleChange = ({ target }) => {
-    const { value, name } = target;
-    setState({ ...state, [name]: value });
+  const handleSubmit = async (event) => {
+    
+    event.preventDefault();
+    const { data } = await createProject(state);
+    console.log("data", data);
+    history.push("/projects");
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await createProject(state);
-    history.push(ROUTES.projects);
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setState({ ...state, [name]: value });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input required name="name" value={state.name} onChange={handleChange} />
+      <label htmlFor="title">Title</label>
+      <input
+        name="title"
+        required
+        onChange={handleChange}
+        value={state.title}
+      />
       <label htmlFor="description">Description</label>
       <input
-        required
         name="description"
-        value={state.description}
-        onChange={handleChange}
-      />
-      <label htmlFor="task">task</label>
-      <input
         required
-        name="task"
-        value={state.task}
         onChange={handleChange}
+        value={state.description}
       />
       <button type="submit">Create Project</button>
     </form>

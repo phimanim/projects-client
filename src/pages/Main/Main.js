@@ -5,9 +5,8 @@ function Main() {
   const { user } = useAuth();
   return (
     <div>
-      <h2>Welcome</h2>
-      <p>{user?.email}</p>
-      
+      <h2>Welcome {user?.email}</h2>
+      <p>Share your projects with us</p>
     </div>
 
   );
